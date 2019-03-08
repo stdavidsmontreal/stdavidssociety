@@ -1,5 +1,5 @@
 import React from "react";
-import { SwipeableDrawer, withWidth } from '@material-ui/core';
+import { List, ListItem, ListItemText, SwipeableDrawer, withWidth } from '@material-ui/core';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -22,10 +22,27 @@ class Header extends React.Component {
         };
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
+        this.scrollTo = this.scrollTo.bind(this);
+    }
+
+    scrollTo(event) {
+        event.preventDefault();
+
+        //Get element to scroll to
+        const element = document.querySelector(event.currentTarget.getAttribute("href"));
+
+        //Get the element's top position
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const elementTop = scrollTop + element.getBoundingClientRect().top;
+
+        //Get header height
+        const headerHeight = document.querySelector("header").offsetHeight;
+
+        //Scroll to element minus header height
+        window.scrollTo(0, elementTop - headerHeight);
     }
 
     toggleDrawer(open) {
-        console.log(open);
         if (this.state.drawerOpen !== open) {
             this.setState({
                 drawerOpen: open
@@ -56,10 +73,10 @@ class Header extends React.Component {
                                     <>
                                         <div className="header-divider" />
                                         <nav>
-                                            <Button href="#about">Home</Button>
-                                            <Button href="#events">Events</Button>
-                                            <Button href="#membership">Memberships</Button>
-                                            <Button href="#contact">Contact</Button>
+                                            <Button href="#about" onClick={ this.scrollTo }>Home</Button>
+                                            <Button href="#events" onClick={ this.scrollTo }>Events</Button>
+                                            <Button href="#membership" onClick={ this.scrollTo }>Memberships</Button>
+                                            <Button href="#contact" onClick={ this.scrollTo }>Contact</Button>
                                         </nav>
                                     </>
                                     : null }
@@ -75,11 +92,44 @@ class Header extends React.Component {
                         </div>
                     </Toolbar>
                 </AppBar>
-                <SwipeableDrawer onClose={ () => this.toggleDrawer(false) } onOpen={ () => this.toggleDrawer(true) }
-                                 open={ this.state.drawerOpen }>
-
-                    {/*TODO: ADD Drawer content*/}
-
+                <SwipeableDrawer
+                    anchor="right"
+                    onClose={ () => this.toggleDrawer(false) }
+                    onOpen={ () => this.toggleDrawer(true) }
+                    open={ this.state.drawerOpen }
+                >
+                    <List>
+                        { [
+                            {
+                                title: 'Home',
+                                url: "#about"
+                            },
+                            {
+                                title: 'Events',
+                                url: "#events"
+                            },
+                            {
+                                title: 'Memberships',
+                                url: "#membership"
+                            },
+                            {
+                                title: 'Contact',
+                                url: "#contact"
+                            }
+                        ].map((item, index) => (
+                            <ListItem
+                                button href={ item.url }
+                                component="a"
+                                key={ item.title }
+                                onClick={ (event) => {
+                                    this.toggleDrawer(false);
+                                    this.scrollTo(event);
+                                } }
+                            >
+                                <ListItemText primary={ item.title } />
+                            </ListItem>
+                        )) }
+                    </List>
                 </SwipeableDrawer>
             </div>
         )
