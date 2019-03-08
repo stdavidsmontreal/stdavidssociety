@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/stdavidsmontreal.github.io/precache-manifest.bcf033e47589c0c5dcabbdb90bcca526.js"
+  "/stdavidssociety/precache-manifest.cfd7ba2d2768c197c7c69baf43fe1af8.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/stdavidsmontreal.github.io/index.html", {
+workbox.routing.registerNavigationRoute("/stdavidssociety/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
