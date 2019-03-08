@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/stdavidssociety/precache-manifest.cfd7ba2d2768c197c7c69baf43fe1af8.js"
+  "/stdavidssociety/precache-manifest.ed6fa53aed7895eb82b284a217573231.js"
 );
 
 workbox.clientsClaim();

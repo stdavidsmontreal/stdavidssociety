@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/stdavidssociety/static/js/runtime~main.e5969466.js"
   },
   {
-    "revision": "eb52b1309152fe1c7a12",
-    "url": "/stdavidssociety/static/js/main.eb52b130.chunk.js"
+    "revision": "10d4c42d12ed57dddb2d",
+    "url": "/stdavidssociety/static/js/main.10d4c42d.chunk.js"
   },
   {
-    "revision": "6fbbb6bfec28056fe818",
-    "url": "/stdavidssociety/static/js/2.6fbbb6bf.chunk.js"
+    "revision": "d431b7cb6a319d034941",
+    "url": "/stdavidssociety/static/js/2.d431b7cb.chunk.js"
   },
   {
-    "revision": "eb52b1309152fe1c7a12",
+    "revision": "10d4c42d12ed57dddb2d",
     "url": "/stdavidssociety/static/css/main.45608b57.chunk.css"
   },
   {
-    "revision": "f4734908effc0078f7af26bdb264120e",
+    "revision": "9106dc6a8e12c8da9cab4303d6e69673",
     "url": "/stdavidssociety/index.html"
   }
 ];
